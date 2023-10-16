@@ -1,25 +1,45 @@
 .App {
   text-align: center;
-  width: 100%; 
+  width: 100%;
 }
 
-.app-div{
-  background: black;
-}
-
-.App-header {
-  background-image: url("./assets/CHRONOMINI.png");  min-height: 100vh;
+.app-background {
+  background-image: url("./assets/CHRONOMINI.png");
+  background-size: cover;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.app-button{
+.app-background h1 {
+  position: absolute;
+  top: 20px;
+}
+
+.app-button {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  position: absolute;
+  top: 45%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.chrono-result {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 5px;
+  font-size: 50px;
 }

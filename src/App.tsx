@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import chronoMini from './assets/CHRONOMINI.png';
+import play from './assets/play.png';
 import './App.css';
 import ChronoButton from './composants/ChronoButton';
+
+function formatTime(seconds: number) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  const formattedTime = `${String(hours).padStart(2, '0')} : ${String(minutes).padStart(2, '0')} : ${String(remainingSeconds).padStart(2, '0')}`;
+  return formattedTime;
+}
 
 
 function App() {
@@ -39,24 +48,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          BIENVENUE SUR NOTRE APPLICATION CHRONO
-        </h1>
-      </header>
-      <div className='app-div'>
-        <img src={chronoMini} className="" alt="logo" width="100%" />
-        <div className='app-button' >
-          <ChronoButton name='Play' onClick={handlePlayClick} />
-          <ChronoButton name='Pause' onClick={handlePauseClick} />
-          <ChronoButton name='Reset' onClick={handleResetClick} />
+      <div className="app-background">
+        <h1>Time Master: Votre Chronomètre Personnalisé</h1>
+        <div className="app-button">
+          <ChronoButton name="Play" onClick={handlePlayClick} />
+          <ChronoButton name="Pause" onClick={handlePauseClick} />
+          <ChronoButton name="Reset" onClick={handleResetClick} />
         </div>
-
-      </div>
-      <div>
-        <p>Chronomètre : {seconds} secondes</p>
+        <p className="chrono-result">{formatTime(seconds)}</p>
       </div>
     </div>
+
   );
 }
 
